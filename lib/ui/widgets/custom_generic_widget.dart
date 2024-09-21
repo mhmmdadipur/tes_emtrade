@@ -113,7 +113,20 @@ class SimpleWaitingWidget extends StatelessWidget {
 }
 
 class EmptyWidget extends StatelessWidget {
-  const EmptyWidget({super.key});
+  const EmptyWidget({
+    super.key,
+    this.title,
+    this.titleStyle,
+    this.subtitle,
+    this.subtitleStyle,
+    this.gap = 0,
+  });
+
+  final String? title;
+  final TextStyle? titleStyle;
+  final String? subtitle;
+  final TextStyle? subtitleStyle;
+  final double gap;
 
   @override
   Widget build(BuildContext context) {
@@ -126,15 +139,18 @@ class EmptyWidget extends StatelessWidget {
             child: Image.asset('assets/images/png_asset-not_found.png',
                 height: Get.height * .3),
           ),
-          const Text(
-            'No Data :(',
+          SizedBox(height: gap),
+          Text(
+            title ?? 'No Data :(',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600)
+                .copyWithTextStyle(titleStyle),
           ),
-          const Text(
-            'Oops! 😖 data not found.\nPull to refresh data.',
+          Text(
+            subtitle ?? 'Oops! 😖 data not found.\nPull to refresh data.',
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.w500),
+            style: const TextStyle(fontWeight: FontWeight.w500)
+                .copyWithTextStyle(subtitleStyle),
           ),
         ],
       ),

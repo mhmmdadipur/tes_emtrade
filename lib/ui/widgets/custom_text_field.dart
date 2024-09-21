@@ -168,7 +168,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       borderRadius: BorderRadius.all(Radius.circular(16))),
                   contentPadding: widget.contentPadding,
                   hintText: widget.hintText,
-                  hintStyle: widget.hintStyle,
+                  hintStyle: TextStyle(
+                    color: _themeController.getSecondaryTextColor.value,
+                  ).copyWithTextStyle(widget.hintStyle),
                   suffixIcon: widget.obscureText
                       ? GestureDetector(
                           onTap: () =>

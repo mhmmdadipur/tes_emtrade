@@ -71,6 +71,9 @@ class _MyAppState extends State<MyApp> {
   final DatabaseController logsController = Get.put(DatabaseController());
   final UserController userController = Get.put(UserController());
   final MainController mainController = Get.put(MainController());
+  final HomeController homeController = Get.put(HomeController());
+  final EducationController educationController =
+      Get.put(EducationController());
 
   final ThemeController _themeController = Get.find();
 

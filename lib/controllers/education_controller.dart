@@ -49,7 +49,7 @@ class EducationController extends GetxController {
       String url =
           'https://backend-api.emtrade.link/content/public/v1/post?${params.join('&')}';
 
-      print(url);
+      debugPrint(url);
       var response = await _apiService.getData(url: url);
       dynamic decoded = jsonDecode(response.body);
       search(searchController.text.trim());

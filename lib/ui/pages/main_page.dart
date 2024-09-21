@@ -17,10 +17,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
-  final HomeController homeController = Get.put(HomeController());
-  final EducationController educationController =
-      Get.put(EducationController());
-
   final ThemeController _themeController = Get.find();
 
   final ScrollController _scrollController = ScrollController();

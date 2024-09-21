@@ -340,7 +340,11 @@ class _EducationPageState extends State<EducationPage> {
                   child: _educationController.listContent.isRxNull
                       ? WaitingWidget()
                       : _educationController.listContent.value?.isEmpty ?? true
-                          ? const EmptyWidget()
+                          ? const EmptyWidget(
+                              gap: SharedValue.defaultPadding,
+                              title: 'Hasil Tidak Ditemukan',
+                              subtitle: 'Harap periksa kembali pencarian kamu.',
+                            )
                           : renderBody(),
                 ),
               ),
