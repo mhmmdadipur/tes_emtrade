@@ -36,14 +36,17 @@ class EducationController extends GetxController {
         'page=$page',
         'size=$size',
         'sort=published_at DESC',
-        [
-          if (searchController.text.trim().isNotEmpty)
-            'query=search:${searchController.text.trim()}',
-          if (selectedCategory.value.isNotEmpty)
-            'category_name:${selectedCategory.value.join('|')}',
-          if (selectedContent.value.isNotEmpty)
-            'content_format:${selectedContent.value.join('|')}',
-        ].join(',')
+        if (searchController.text.trim().isNotEmpty ||
+            selectedCategory.value.isNotEmpty ||
+            selectedContent.value.isNotEmpty)
+          'query=${[
+            if (searchController.text.trim().isNotEmpty)
+              'search:${searchController.text.trim()}',
+            if (selectedCategory.value.isNotEmpty)
+              'category_name:${selectedCategory.value.join('|')}',
+            if (selectedContent.value.isNotEmpty)
+              'content_format:${selectedContent.value.join('|')}',
+          ].join(',')}'
       ];
 
       String url =

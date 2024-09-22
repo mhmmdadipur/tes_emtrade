@@ -71,6 +71,7 @@ class _EducationPageState extends State<EducationPage> {
   }
 
   Future<void> onTapFilterButton() async {
+    FocusManager.instance.primaryFocus?.unfocus();
     Rx<List> selectedCategory =
         Rx<List>(_educationController.selectedCategory.deepCopy());
 
